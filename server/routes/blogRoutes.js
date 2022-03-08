@@ -5,4 +5,6 @@ const blogController = require('../controllers/blogController');
 
 router.get('/', blogController.homepage);
 
+router.get('/categories', blogController.exploreCategories);
+
 module.exports = router;

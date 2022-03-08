@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 require('./Category');
+require('./Recipe');
 
 // mongoose.connect(process.env.CONECTION_DB, {
 //   useNewUrlParser: true,
