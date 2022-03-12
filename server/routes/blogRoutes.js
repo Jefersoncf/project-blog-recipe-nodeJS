@@ -7,4 +7,6 @@ router.get('/', blogController.homepage);
 
 router.get('/categories', blogController.exploreCategories);
 
+router.get('/recipe/:id', blogController.exploreRecipe);
+
 module.exports = router;

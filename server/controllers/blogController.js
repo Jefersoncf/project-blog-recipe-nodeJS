@@ -13,22 +13,37 @@ exports.homepage = async(req, res) => {
 
     const latest = await Recipe.find({}).sort({_id: -1}).limit(limitNumber);
 
-    const food = { latest };
+    const thai = await Recipe.find({'category': 'Thai'}).limit(limitNumber);
+    const american = await Recipe.find({'category': 'American'}).limit(limitNumber);
+    const chinese = await Recipe.find({'category': 'Chinese'}).limit(limitNumber);
 
+    const food = { latest, thai, american, chinese};
 
-
-    res.render('index', {title: 'HomePage', categories, food});
+    res.render('index', {title: 'Recipe Blog - HomePage', categories, food});
   } catch (error) {
     res.status(500).send({message: error.message || 'Error processing'});
   }
 }
 
+// exploreCategories
 exports.exploreCategories = async(req, res) => {
   try {
     const limitNumber = 20;
     const categories = await Category.find({}).limit(limitNumber);
 
-    res.render('categories', {title: 'Categories', categories});
+    res.render('categories', {title: 'Recipe Blog - Categories', categories});
+  } catch (error) {
+    res.status(500).send({message: error.message || 'Error processing'});
+  }
+}
+
+// GET recipe/:id
+exports.exploreRecipe = async(req, res) => {
+  try {
+    let recipeId = req.params.id;
+    const recipe = await Recipe.findById(recipeId);
+
+    res.render('recipe', {title: 'Recipe Blog - Recipe', recipe});
   } catch (error) {
     res.status(500).send({message: error.message || 'Error processing'});
   }
@@ -78,7 +93,7 @@ exports.exploreCategories = async(req, res) => {
 //       [
 //         { 
 //           "name": "Panquecas americanas",
-//           "description": `Em um liquidificador, bata o ovo com o óleo e o creme de leite. 
+//           "desc": `Em um liquidificador, bata o ovo com o óleo e o creme de leite. 
 //             Acrescente a farinha de trigo e o fermento e bata até ficar homogêneo. 
 //             Em uma frigideira untada com óleo, despeje porções de massa no centro, sem espalhar. 
 //             Quando começar a formar furinhos na superfície, vire a panqueca e deixe dourar do outro lado. 
@@ -96,7 +111,7 @@ exports.exploreCategories = async(req, res) => {
 //         },
 //         { 
 //           "name": "Camarão Tailandês",
-//           "description": `Descasque e corte em fatias o alho e as cebolas. 
+//           "desc": `Descasque e corte em fatias o alho e as cebolas. 
 //             Pique o jalapeño e rale o gengibre. Tire as raspas do limão e pique a 
 //             erva cidreira. Descasque os camarões deixando a cabeça. Frite em óleo de 
 //             coco ou de girassol bem quente e reserve. Na mesma panela frite em fogo alto 
@@ -128,7 +143,7 @@ exports.exploreCategories = async(req, res) => {
 //         },
 //         { 
 //           "name": "Carne Shop Suey",
-//           "description": `Aqueça o óleo e frite a carne até dourar. Adicione 1 xícara (chá) do caldo 
+//           "desc": `Aqueça o óleo e frite a carne até dourar. Adicione 1 xícara (chá) do caldo 
 //             de carne, abaixe o fogo e cozinhe até a carne ficar macia. Junte a cenoura e 
 //             1/2 xícara (chá) de caldo de carne e cozinhe por 5 minutos. Acrescente os brócolis 
 //             e mais 1/2 xícara (chá) de caldo. Cozinhe por mais 5 minutos e adicione o molho de soja. 
@@ -151,7 +166,7 @@ exports.exploreCategories = async(req, res) => {
 
 //         { 
 //           "name": "Curry de Peixe",
-//           "description": `Pique finamente o alho e a cebola, corte as cenouras e as abobrinhas
+//           "desc": `Pique finamente o alho e a cebola, corte as cenouras e as abobrinhas
 //             em palitos bem finos e longos, e o gengibre, em lâminas bem finas. Em uma caçarola, 
 //             derreta a manteiga em fogo médio e refogue o alho, a cebola e o gengibre por 3 minutos. 
 //             Adicione o curry, o sal e a pimenta e deixe cozinhar por mais 2 minutos, mexendo sempre.
@@ -182,7 +197,7 @@ exports.exploreCategories = async(req, res) => {
 
 //         { 
 //           "name": "Arroz a Espanhola",
-//           "description": `ozinhe por 20 minutos, em seguida, mexa com um garfo. Se o arroz estiver macio, 
+//           "desc": `ozinhe por 20 minutos, em seguida, mexa com um garfo. Se o arroz estiver macio, 
 //             mas bastante úmido, cozinhe sem a tampa por mais 5 minutos. Se o arroz estiver seco, 
 //             mas ainda não estiver no ponto, adicione meia xícara de água, tampe e continue a 
 //             cozinhar por mais 5 minutos ou até que o arroz esteja pronto.`,
@@ -203,7 +218,7 @@ exports.exploreCategories = async(req, res) => {
 
 //         { 
 //           "name": "Chili",
-//           "description": `Em uma panela grande, coloque azeite e refogue bem o pimentão. 
+//           "desc": `Em uma panela grande, coloque azeite e refogue bem o pimentão. 
 //             Adicione o alho e refogue até ficar dourado. Adicione a carne e refogue até cozinhar, 
 //             mexendo sempre para não empelotar. Misture a pimenta picada e o tomate pelado. 
 //             Adicione o feijão já cozido. Coloque o ketchup e tempere com o sal e a salsinha. 
