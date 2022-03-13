@@ -28,4 +28,8 @@ const recipeSchema = new mongoose.Schema({
   }
 });
 
+recipeSchema.index({ name: 'text', desc: 'text'});
+// Indexing
+// recipeSchema.index({ '$**': 'text'});
+
 module.exports = mongoose.model('Recipe', recipeSchema);
