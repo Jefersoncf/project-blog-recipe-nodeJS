@@ -5,6 +5,9 @@ const blogController = require('../controllers/blogController');
 
 router.get('/', blogController.homepage);
 
+router.get('/about', blogController.about);
+
+
 router.get('/recipe/:id', blogController.exploreRecipe);
 
 router.get('/categories', blogController.exploreCategories);

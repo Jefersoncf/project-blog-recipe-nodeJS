@@ -24,6 +24,11 @@ exports.homepage = async(req, res) => {
     res.status(500).send({message: error.message || 'Error processing'});
   }
 }
+
+exports.about = async(req, res) => {
+  res.render('about', {title: 'Recipe Blog - Sobre'});
+}
+
 //GET categories
 // exploreCategories
 exports.exploreCategories = async(req, res) => {

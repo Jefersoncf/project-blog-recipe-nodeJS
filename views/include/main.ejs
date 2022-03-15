@@ -23,17 +23,16 @@
 <body>
 
   <div class="container-xxl px-md-5 bg-white shadow-lg">
-
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
       <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
         <img src="/img/blog-logo.png" width="229" height="58" alt="Cooking Blog - Made with NodeJS"/>
       </a>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="/about" class="nav-link px-2 link-secondary">About</a></li>
-        <li><a href="/submit-recipe" class="nav-link px-2 link-secondary">Submit</a></li>
-        <li><a href="/contact" class="nav-link px-2 link-secondary">Contact</a></li>
+        <li><a href="/" class="nav-link px-2 link-secondary">Início</a></li>
+        <li><a href="/about" class="nav-link px-2 link-secondary">Sobre</a></li>
+        <li><a href="/submit-recipe" class="nav-link px-2 link-secondary">Enviar</a></li>
+        <li><a href="/contact" class="nav-link px-2 link-secondary">Contato</a></li>
       </ul>
       <div class="col-md-3 text-end">
         <form action="/search" method="POST">
@@ -46,24 +45,17 @@
       <%- body -%> 
     </main>
 
-    <footer class="py-5">
-      <p>Build by Jeferson Ferreira</p>
-    </footer>
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <div class="col-md-4 d-flex align-items-center">
-      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-      </a>
-      <span class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© 2022 By Jeferson Ferreira</font></font></span>
-    </div>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top ">
+      <div class="col-md-4 d-flex align-items-center">
+        <span class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Jeferson © 2022 Todos os direitos reservados.</font></font></span>
+      </div>
 
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-      <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-twitter" style="font-size: 2rem;"></i></a></li>
-      <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook" style="font-size: 2rem; color: blue;"></i></a></li>
-      <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-instagram" style="font-size: 2rem;"></i></a></li>
-    </ul>
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-twitter" style="font-size: 2rem; color: #1ad3e8;"></i></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook" style="font-size: 2rem; color: #1a57e8;"></i></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-instagram" style="font-size: 2rem; color: #e8581a;"></i></a></li>
+      </ul>
   </footer>
-
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
