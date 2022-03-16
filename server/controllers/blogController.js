@@ -19,14 +19,18 @@ exports.homepage = async(req, res) => {
 
     const food = { latest, thai, american, chinese};
 
-    res.render('index', {title: 'Recipe Blog - HomePage', categories, food});
+    res.render('index', {title: 'E-Recitas - HomePage', categories, food});
   } catch (error) {
     res.status(500).send({message: error.message || 'Error processing'});
   }
 }
 
 exports.about = async(req, res) => {
-  res.render('about', {title: 'Recipe Blog - Sobre'});
+  res.render('about', {title: 'E-Recitas - Sobre'});
+}
+
+exports.contact = async(req, res) => {
+  res.render('contact', {title: 'E-Recitas - Contato'});
 }
 
 //GET categories
@@ -36,7 +40,7 @@ exports.exploreCategories = async(req, res) => {
     const limitNumber = 20;
     const categories = await Category.find({}).limit(limitNumber);
 
-    res.render('categories', {title: 'Recipe Blog - Categorias', categories});
+    res.render('categories', {title: 'E-Recitas - Categorias', categories});
   } catch (error) {
     res.status(500).send({message: error.message || 'Error processing'});
   }
@@ -49,7 +53,7 @@ exports.exploreCategoriesId = async(req, res) => {
     const limitNumber = 5;
     const categoryById = await Recipe.find({'category': categoryId }).limit(limitNumber);
 
-    res.render('categories', {title: 'Recipe Blog - Categorias', categoryById });
+    res.render('categories', {title: 'E-Recitas - Categorias', categoryById });
   } catch (error) {
     res.status(500).send({message: error.message || 'Error processing'});
   }
@@ -61,7 +65,7 @@ exports.exploreRecipe = async(req, res) => {
     let recipeId = req.params.id;
     const recipe = await Recipe.findById(recipeId);
 
-    res.render('recipe', {title: 'Recipe Blog - Recipe', recipe});
+    res.render('recipe', {title: 'E-Recitas - Recipe', recipe});
   } catch (error) {
     res.status(500).send({message: error.message || 'Error processing'});
   }
@@ -73,7 +77,7 @@ exports.searchRecipe = async(req, res) => {
     let searchTerm = req.body.searchTerm;
     let recipe = await Recipe.find({$text: { $search: searchTerm, $diacriticSensitive: true }});
     
-    res.render('search', {title: 'Cooking Blog - Search', recipe});
+    res.render('search', {title: 'E-Recitas - Search', recipe});
   } catch (error) {
     res.status(500).send({message: error.message || 'Error processing'});
   }

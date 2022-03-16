@@ -7,6 +7,7 @@ router.get('/', blogController.homepage);
 
 router.get('/about', blogController.about);
 
+router.get('/contact', blogController.contact);
 
 router.get('/recipe/:id', blogController.exploreRecipe);
 
