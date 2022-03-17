@@ -19,7 +19,7 @@ exports.homepage = async(req, res) => {
 
     const food = { latest, thai, american, chinese};
 
-    res.render('index', {title: 'E-Recitas - HomePage', categories, food});
+    res.render('index', {title: 'E-Recitas - Home', categories, food});
   } catch (error) {
     res.status(500).send({message: error.message || 'Error processing'});
   }
@@ -65,7 +65,7 @@ exports.exploreRecipe = async(req, res) => {
     let recipeId = req.params.id;
     const recipe = await Recipe.findById(recipeId);
 
-    res.render('recipe', {title: 'E-Recitas - Recipe', recipe});
+    res.render('recipe', {title: 'E-Recitas - Receitas', recipe});
   } catch (error) {
     res.status(500).send({message: error.message || 'Error processing'});
   }
@@ -89,7 +89,7 @@ exports.exploreLatest = async(req, res) => {
     const limitNumber = 20;
     const recipe = await Recipe.find({}).sort({ _id: -1}).limit(limitNumber);
 
-    res.render('explore-latest', {title: 'Recipe Blog - Explore Latest', recipe});
+    res.render('explore-latest', {title: 'E-Recitas - Posts Mais Recentes', recipe});
   } catch (error) {
     res.status(500).send({message: error.message || 'Error processing'});
   }
@@ -102,7 +102,7 @@ exports.exploreRandom = async(req, res) => {
     let random = Math.floor(Math.random() * count);
     let recipe = await Recipe.findOne().skip(random).exec();
 
-    res.render('explore-random', {title: 'Recipe Blog - Explore Latest', recipe});
+    res.render('explore-random', {title: 'E-Recitas - Posts Mais Recentes', recipe});
   } catch (error) {
     res.status(500).send({message: error.message || 'Error processing'});
   }
@@ -112,7 +112,7 @@ exports.exploreRandom = async(req, res) => {
 exports.submitRecipe = async(req, res) => {
   const infoErrors = req.flash('infoErrors');
   const infoSuccessSubmit = req.flash('infoSubmit');
-  res.render('submit-recipe', {title: 'Recipe Blog - Submit Recipe', infoErrors, infoSuccessSubmit});
+  res.render('submit-recipe', {title: 'E-Recitas - Enviar Recita', infoErrors, infoSuccessSubmit});
 }
 
 // POST /submit-recipe
