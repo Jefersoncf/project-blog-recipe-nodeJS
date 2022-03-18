@@ -1,6 +1,7 @@
 require('../models/database');
 const Category = require('../models/Category');
 const Recipe = require('../models/Recipe');
+const ContactMessage = require('../models/ContactMessage');
 
 /**
  * GET
@@ -31,6 +32,17 @@ exports.about = async(req, res) => {
 
 exports.contact = async(req, res) => {
   res.render('contact', {title: 'E-Recitas - Contato'});
+}
+
+//POST /contact
+exports.contactPost = async(req, res) => {
+  try {
+    const { name, email, subject, message } = req.body;
+    await ContactMessage.create({name, email, subject, message});
+    res.render('contact', {title: 'E-Recitas - Contato'});
+  } catch (error) {
+    res.status(500).send({message: error.message || 'Error processing'});
+  }
 }
 
 //GET categories

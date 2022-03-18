@@ -9,6 +9,8 @@ router.get('/about', blogController.about);
 
 router.get('/contact', blogController.contact);
 
+router.post('/contact', blogController.contactPost);
+
 router.get('/recipe/:id', blogController.exploreRecipe);
 
 router.get('/categories', blogController.exploreCategories);
