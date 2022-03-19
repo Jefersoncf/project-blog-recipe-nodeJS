@@ -26,10 +26,12 @@ exports.homepage = async(req, res) => {
   }
 }
 
+// GET /about
 exports.about = async(req, res) => {
   res.render('about', {title: 'E-Recitas - Sobre'});
 }
 
+// GET /contact
 exports.contact = async(req, res) => {
   res.render('contact', {title: 'E-Recitas - Contato'});
 }

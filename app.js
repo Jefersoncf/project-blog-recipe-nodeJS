@@ -20,7 +20,7 @@ app.use(expressLayouts);
 
 app.use(cookieParser('RecipeBlogSecure'));
 app.use(session({
-  secret: 'RecipeBlogSecretSession',
+  secret: 'BlogSecretSession',
   saveUninitialized: true,
   resave: true
 }));
