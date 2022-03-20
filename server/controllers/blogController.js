@@ -33,7 +33,10 @@ exports.about = async(req, res) => {
 
 // GET /contact
 exports.contact = async(req, res) => {
-  res.render('contact', {title: 'E-Recitas - Contato'});
+  const messageInfoErrors = req.flash('messageErrors');
+  const messageInfoSuccess = req.flash('messageSuccess');
+
+  res.render('contact', {title: 'E-Recitas - Contato', messageInfoErrors, messageInfoSuccess});
 }
 
 //POST /contact
@@ -41,9 +44,13 @@ exports.contactPost = async(req, res) => {
   try {
     const { name, email, subject, message } = req.body;
     await ContactMessage.create({name, email, subject, message});
-    res.render('contact', {title: 'E-Recitas - Contato'});
+
+    req.flash('messageSuccess', 'Sua Mensagem foi enviada com sucesso!');
+    res.rendirect('/contact', {title: 'E-Recitas - Contato'});
   } catch (error) {
-    res.status(500).send({message: error.message || 'Error processing'});
+    req.flash('messageErrors', error);
+    res.redirect('/contact');
+    // res.status(500).send({message: error.message || 'Error processing'});
   }
 }
 

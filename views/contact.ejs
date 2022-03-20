@@ -9,6 +9,20 @@
 </div>
 
 <div class="row justify-content-center">
+
+  <% if(messageInfoSuccess != "") { %> 
+    <div class="col-8 alert alert-success" role="alert">
+      <%= messageInfoSuccess %> 
+    </div>
+    <% } %> 
+  
+    <% if(messageInfoErrors != "") { %> 
+      <div class="col-8 alert alert-danger" role="alert">
+        <%= messageInfoErrors[0].message %> 
+      </div>
+    <% } %>
+  
+
   <div class="col-8">
     <form action="/contact" enctype="multipart/form-data" method="post">
       <div class="row g-3">
