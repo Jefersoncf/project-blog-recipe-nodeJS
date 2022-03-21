@@ -82,3 +82,9 @@ $ npm run start
  
 Please follow github and join us!
 Thanks to visiting me and good coding!
+
+## License
+
+This project is under license [MIT](https://github.com/Jefersoncf/project-blog-recipe-nodeJS/blob/main/LICENSE)
+
+Made by Jeferson Ferreira [contact](www.linkedin.com/in/jeferson-ferreirajf23)
