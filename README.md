@@ -20,6 +20,7 @@ Here are the technologies used in this project.
 * [Node.js](https://nodejs.org/en/)
 * [Bootstrap](https://getbootstrap.com/) 
 * [Mongodb](https://www.mongodb.com/)
+* [EJS](https://ejs.co/)
  
  
 ## Services Used
