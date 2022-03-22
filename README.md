@@ -1,4 +1,4 @@
-![Logo of the project](https://github.com/Jefersoncf/project-blog-recipe-nodeJS/blob/main/home.png)
+![banner](https://github.com/Jefersoncf/project-blog-recipe-nodeJS/blob/main/home.png)
  
  <h1 align="center"> 
    Recipes Blog
